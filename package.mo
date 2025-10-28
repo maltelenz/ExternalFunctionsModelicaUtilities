@@ -42,8 +42,7 @@ package ExternalFunctionsModelicaUtilities
     extends BaseFunctions;
 
     redeclare function extends sizef
-      external "C";
-    annotation(
+      external "C" annotation(
       LibraryDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source/build",
       Library="functions",
       IncludeDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source",
@@ -51,8 +50,7 @@ package ExternalFunctionsModelicaUtilities
     end sizef;
     
     redeclare function extends compute
-      external "C";
-    annotation(
+      external "C" annotation(
       LibraryDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source/build",
       Library="functions",
       IncludeDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source",
