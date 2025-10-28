@@ -1,9 +1,9 @@
 package ExternalFunctionsModelicaUtilities
   package BaseFunctions "Common interface declarations for functions"
-    replaceable function size "Returns size of arrays based on name input"
+    replaceable function sizef "Returns size of arrays based on name input"
       input String name;
       output Integer N;
-    end size;
+    end sizef;
     
     replaceable function compute "Compute a function of x based on the name input"
       input String name;
@@ -14,14 +14,14 @@ package ExternalFunctionsModelicaUtilities
 
   package ModelicaFunctions "Modelica implementation"
     extends BaseFunctions;
-    redeclare function extends size
+    redeclare function extends sizef
     algorithm
       if name == "foobar" then
         N := 3;
       else
         assert(false, "Unsupported name");
       end if;
-    end size;
+    end sizef;
     
     redeclare function extends compute
       input String name;
@@ -41,14 +41,14 @@ package ExternalFunctionsModelicaUtilities
   package ExternalFunctions
     extends BaseFunctions;
 
-    redeclare function extends size
+    redeclare function extends sizef
       external "C";
     annotation(
       LibraryDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source/build",
       Library="functions",
       IncludeDirectory="modelica://ExternalFunctionsModelicaUtilities/Resources/Source",
       Include="#include \"functions.h\"");
-    end size;
+    end sizef;
     
     redeclare function extends compute
       external "C";
@@ -63,7 +63,7 @@ package ExternalFunctionsModelicaUtilities
   partial model M "The mother of all test models"
     replaceable package P = BaseFunctions;
     parameter String name = "undefined";
-    parameter Integer N = P.size(name) annotation(Evaluate = true);
+    parameter Integer N = P.sizef(name) annotation(Evaluate = true);
     Real y[N];
   equation
     for i in 1:N loop
