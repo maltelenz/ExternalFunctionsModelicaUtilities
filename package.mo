@@ -1,11 +1,11 @@
 package ExternalFunctionsModelicaUtilities
   package BaseFunctions "Common interface declarations for functions"
-    function size "Returns size of arrays based on name input"
+    replaceable function size "Returns size of arrays based on name input"
       input String name;
       output Integer N;
     end size;
     
-    function compute "Compute a function of x based on the name input"
+    replaceable function compute "Compute a function of x based on the name input"
       input String name;
       input Real x;
       output Real y;
