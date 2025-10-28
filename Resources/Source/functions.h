@@ -1,4 +1,4 @@
 #pragma once
 
-int size(const char *name);
+int sizef(const char *name);
 double compute(const char *name, double x);

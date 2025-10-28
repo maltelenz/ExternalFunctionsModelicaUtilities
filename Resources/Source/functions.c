@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "ModelicaUtilities.h"
 
-int size(const char *name)
+int sizef(const char *name)
 {
   if (!strcmp(name, "foobar"))
     return 3;
