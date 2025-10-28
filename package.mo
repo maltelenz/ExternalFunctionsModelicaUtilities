@@ -92,12 +92,12 @@ package ExternalFunctionsModelicaUtilities
   end M1E;
   
   model M2E "Same as M2M with external function implementation"
-    extends M2M(redeclare package P = ExternalFunctions);
+    extends M2M(redeclare package P = ExternalFunctions, name = "foobar");
     annotation(experiment(StopTime = 10));
   end M2E;
 
   model M3E "Same as M3M with external function implementation"
-    extends M3M(redeclare package P = ExternalFunctions);
+    extends M3M(redeclare package P = ExternalFunctions, name = "foobar", N = 3);
     annotation(experiment(StopTime = 10));
   end M3E;
 end ExternalFunctionsModelicaUtilities;
